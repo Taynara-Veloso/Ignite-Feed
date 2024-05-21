@@ -1,4 +1,4 @@
-header {
+.header {
   background: var(--gray-800);
   display: flex;
   justify-content: center;
@@ -7,6 +7,6 @@ header {
   padding: 1.25rem 0;
 }
 
-header img{
+.header img{
   height: 2rem;
 }

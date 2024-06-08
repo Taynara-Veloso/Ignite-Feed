@@ -4,15 +4,15 @@ import { format, formatDistanceToNow} from 'date-fns'
 import ptBR from 'date-fns/locale/pt-BR'
 
 import styles from './Post.module.css'
+import { useState } from 'react';
 
-const comments = [
-  1,
-  2,
-  3,
-  4,
-];
+// estado = variáveis que eu quero que o componente monitore
 
 export function Post({author, publishedAt, content}) {
+  const [comments, setComments] = useState([
+    'Post bacana, hein!'
+  ])
+
   const publishedDateFormatted = format(publishedAt, " d 'de' LLLL 'às' HH:mm'h'", {
     locale: ptBR,
   });
@@ -21,6 +21,18 @@ export function Post({author, publishedAt, content}) {
     locale: ptBR,
     addSuffix: true
   }); 
+
+  function handleCreateNewComment() {
+    event.preventDefault()
+
+    const newCommentText = event.target.inputTextarea.value
+
+    //O operador de propagação JavaScript ( ...) nos permite copiar rapidamente todo ou parte de um array ou objeto existente para outro array ou objeto.
+    //Spread Operator
+    setComments([...comments, newCommentText]);
+
+    event.target.inputTextarea.value = '';
+  }
 
   return (
     <article className={styles.post}>
@@ -47,9 +59,10 @@ export function Post({author, publishedAt, content}) {
         })}
       </div>
 
-      <form className={styles.commentForm}>
+      <form onSubmit={handleCreateNewComment} className={styles.commentForm}>
         <strong>Deixe seu feedback</strong>
         <textarea 
+          name='inputTextarea'
           placeholder='Deixe seu comentário'
         />
         <footer>
@@ -59,7 +72,11 @@ export function Post({author, publishedAt, content}) {
 
       <div className={styles.commentList}>
         {comments.map(comment => {
-          return <Comment />
+          return (
+            <Comment 
+              key={comment}
+              content={comment}/>
+          )
         })}
       </div>
     </article>

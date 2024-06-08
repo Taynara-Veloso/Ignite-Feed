@@ -3,7 +3,7 @@ import { Avatar } from './Avatar'
 
 import styles from './Comment.module.css'
 
-export function Comment(){
+export function Comment(props){
   return(
     <div className={styles.comment}>
       <Avatar hasBorder={false} src="https://camo.githubusercontent.com/dfdebe92274e943e9bdecefb4ca5197b9a6a68933ef8eeb8d77665d4dec2619a/68747470733a2f2f692e696d6775722e636f6d2f5470675571544d2e706e67" />
@@ -18,7 +18,7 @@ export function Comment(){
               <Trash size={24}/>
             </button>
           </header>
-          <p>comentário aqui</p>
+          <p>{props.content}</p>
         </div>
         <footer>
           <button>

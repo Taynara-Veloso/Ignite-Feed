@@ -13,6 +13,8 @@ export function Post({author, publishedAt, content}) {
     'Post bacana, hein!'
   ])
 
+  const [newCommentText, setNewCommentText] = useState('') 
+
   const publishedDateFormatted = format(publishedAt, " d 'de' LLLL 'às' HH:mm'h'", {
     locale: ptBR,
   });
@@ -25,13 +27,14 @@ export function Post({author, publishedAt, content}) {
   function handleCreateNewComment() {
     event.preventDefault()
 
-    const newCommentText = event.target.inputTextarea.value
-
     //O operador de propagação JavaScript ( ...) nos permite copiar rapidamente todo ou parte de um array ou objeto existente para outro array ou objeto.
     //Spread Operator
     setComments([...comments, newCommentText]);
+    setNewCommentText('');
+  }
 
-    event.target.inputTextarea.value = '';
+  function handleNewCommentChange() {
+    setNewCommentText(event.target.value);
   }
 
   return (
@@ -63,7 +66,9 @@ export function Post({author, publishedAt, content}) {
         <strong>Deixe seu feedback</strong>
         <textarea 
           name='inputTextarea'
+          value={newCommentText}
           placeholder='Deixe seu comentário'
+          onChange={handleNewCommentChange}
         />
         <footer>
         <button type='submit'>Publicar</button>

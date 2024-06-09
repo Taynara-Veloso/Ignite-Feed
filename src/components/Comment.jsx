@@ -12,7 +12,36 @@ export function Comment({ content, onDeleteComment }){
   }
 
   function handleLikeComment() { //forma de escrita mais legível = Clean Code
-    setLikeCount(likeCount + 1)
+    //setLikeCount(likeCount + 1)
+    setLikeCount((state) => {
+      return state + 1
+    });
+     
+    /* 
+      Uma solução para adicionar mais like em um só click 
+
+      const newLikeCount = likeCount + 1;
+
+      setLikeCount(newLikeCount);
+      setLikeCount(newLikeCount + 1);
+    */
+    /* 
+      Outra maneira de adicionar mais like em um só click com função
+
+      function handleLikeComment() {
+        setLikeCount((state) => {
+          return state + 1
+        });
+
+        setLikeCount((state) => {
+          return state + 1
+        });
+      }
+        SEMPRE QUE FOR PRECISO ATUALIZAR UMA INFORMAÇÃO, 
+        E ESSA INFORMAÇÃO DEPENDE DO VALOR QUE ELA TINHA 
+        ANTERIORMENTE (DEPENDE DELA MESMA) É MAIS INTERESSANTE 
+        FAZER A ATUALIZAÇÃO USANDO ESSE PADRÃO DE FUNÇÕES. 
+    */
   }
 
   return(

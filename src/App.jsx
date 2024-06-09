@@ -9,6 +9,7 @@ import './global.css';
 
 const posts = [
   {
+    id: 1,
     author: {
       avatarUrl: 'https://avatars.githubusercontent.com/u/81330596?v=4',
       name: 'Taynara Veloso',
@@ -22,6 +23,7 @@ const posts = [
     publishedAt: new Date('2024-05-23 19:30:00')
   },
   {
+    id: 2,
     author: {
       avatarUrl: 'https://avatars.githubusercontent.com/u/72281058?v=4',
       name: 'Augusto Cesar',
@@ -35,6 +37,7 @@ const posts = [
     publishedAt: new Date('2024-05-23 19:30:00')
   },
   {
+    id: 3,
     author: {
       avatarUrl: 'https://avatars.githubusercontent.com/u/6643122?v=4',
       name: 'Mayk Brito',
@@ -58,7 +61,7 @@ export function App() {
         <main>
           {posts.map(post => {
             return (
-              <Post key={post}
+              <Post key={post.id}
                 author={post.author}
                 content={post.content}
                 publishedAt={post.publishedAt}

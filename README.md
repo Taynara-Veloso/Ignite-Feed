@@ -20,6 +20,10 @@
 ```js
     npm i date-fns 
 ```
+  * Instalando biblioteca para utilizar icones.
+```js
+    npm i phosphor-react
+```
 
 ## Spread Operator ( ...)
 

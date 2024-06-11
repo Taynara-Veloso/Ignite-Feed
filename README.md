@@ -1,8 +1,24 @@
 ![image description](/src/assets/printProjectReadme.jpg)
 
-
+## criando um projeto:
+  * Em um prompt de comando vá até a pasta desejada para armazenar o projeto e digite:
 ```js
-    npm i date-fns - instalando biblioteca para utilizar datas.
+  npm create vite@latest
+```
+  * Insira o nome do projeto.
+  * Escolha o framework: React.
+  * Escolha a línguagem: TypeScript.
+  * Instale o node modules
+```js
+  npm install
+```
+  * Para rodar o código basta ir até o terminal e digitar:
+```js
+  npm run dev
+```
+  * Instalando biblioteca para utilizar datas.
+```js
+    npm i date-fns 
 ```
 
 ## Spread Operator ( ...)
